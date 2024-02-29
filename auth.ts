@@ -12,7 +12,8 @@ import NextAuth from "next-auth"
 // import Bungie from "next-auth/providers/bungie"
 // import Cognito from "next-auth/providers/cognito"
 // import Coinbase from "next-auth/providers/coinbase"
-// import Discord from "next-auth/providers/discord"
+import Discord from "next-auth/providers/discord"
+import DiscordCustom from "./discord_provider";
 // import Dropbox from "next-auth/providers/dropbox"
 // import DuendeIDS6 from "next-auth/providers/duende-identity-server6"
 // import Eveonline from "next-auth/providers/eveonline"
@@ -22,7 +23,7 @@ import NextAuth from "next-auth"
 // import Foursquare from "next-auth/providers/foursquare"
 // import Freshbooks from "next-auth/providers/freshbooks"
 // import Fusionauth from "next-auth/providers/fusionauth"
-import GitHub from "next-auth/providers/github"
+// import GitHub from "next-auth/providers/github"
 // import Gitlab from "next-auth/providers/gitlab"
 // import Google from "next-auth/providers/google"
 // import Hubspot from "next-auth/providers/hubspot"
@@ -82,7 +83,10 @@ export const config = {
     // Bungie,
     // Cognito,
     // Coinbase,
-    // Discord,
+    DiscordCustom({
+      clientId: process.env.DISCORD_CLIENT_ID,
+      clientSecret: process.env.DISCORD_CLIENT_SECRET
+    }),
     // Dropbox,
     // DuendeIDS6,
     // Eveonline,
@@ -92,7 +96,7 @@ export const config = {
     // Foursquare,
     // Freshbooks,
     // Fusionauth,
-    GitHub,
+    // GitHub,
     // Gitlab,
     // Google,
     // Hubspot,
